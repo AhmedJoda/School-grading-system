@@ -7,8 +7,8 @@
             <tr>
                 <th scope="col">id</th>
                 <th scope="col">name</th>
-                <th scope="col">marks</th>
-                <th scope="col">grade</th>
+                <th scope="col">job</th>
+                <th scope="col">salary</th>
                 <th scope="col">edit</th>
                 <th scope="col">delete</th>
 
@@ -16,17 +16,17 @@
         </thead>
         <tbody>
             <tr>
-            @foreach($students as $student)
+            @foreach($employees as $employee)
                 <th scope="row">1</th>
-                <td>{{$student->name}}</td>
-                <td>{{$student->job}}</td>
-                <td>{{$student->salary}}</td>
-                <td><a href="{{url('students/'.$student->id.'/edit')}}">
+                <td>{{$employee->name}}</td>
+                <td>{{$employee->job}}</td>
+                <td>{{$employee->salary}}</td>
+                <td><a href="{{url('employees/'.$employee->id.'/edit')}}">
                             <button class='btn btn-primary'>    
 edit                        </button>
                         </a> </td>
                         <td>
-                        <form action="{{ route('students.destroy', $student->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete?');" style="display: inline-block;">
+                        <form action="{{ route('employees.destroy', $employee->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete?');" style="display: inline-block;">
                      <input type="hidden" name="_token" value="{{ csrf_token() }}">
                      <input type="hidden" name="_method" value="DELETE">
                      <input type="submit" class="btn btn-danger" value="delete">
@@ -36,9 +36,9 @@ edit                        </button>
             @endforeach
             <tr>
                 <th scope="row">
-                    <a href="{{route('students.create')}}">
+                    <a href="{{route('employees.create')}}">
                             <button class='btn btn-primary'>    
-                            add a new student
+                            add a new employee
                         </button>
                         </a>
                 </th>
