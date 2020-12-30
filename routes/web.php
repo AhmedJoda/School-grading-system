@@ -31,3 +31,4 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::resource('students', StudentController::class);
 Route::resource('employees', EmployeeController::class);
+    

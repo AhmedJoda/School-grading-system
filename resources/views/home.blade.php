@@ -6,8 +6,10 @@
         Welcome to {{ config('app.name') }}
     </div>
 
-    <a href="{{route('students.index')}}">Students</a>
-    <a href="{{route('employees.index')}}">employees</a>
+    <a class="btn btn-primary" href="{{route('students.index')}}">Students</a>
+   @if(auth()->user() && auth()->user()->admin)
+    <a class="btn btn-primary" href="{{route('employees.index')}}">employees</a>
+    @endif
 
 </div>
 @endsection

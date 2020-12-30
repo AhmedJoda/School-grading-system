@@ -21,8 +21,12 @@
                 <td>{{$employee->name}}</td>
                 <td>{{$employee->job}}</td>
                 <td>{{$employee->salary}}</td>
+                <td><a href="{{url('employees/'.$employee->id)}}">
+                    <button class='btn btn-primary'>    
+show                        </button>
+                </a> </td>
                 <td><a href="{{url('employees/'.$employee->id.'/edit')}}">
-                            <button class='btn btn-primary'>    
+                            <button class='btn btn-warning'>    
 edit                        </button>
                         </a> </td>
                         <td>

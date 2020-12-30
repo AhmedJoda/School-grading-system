@@ -18,6 +18,7 @@ class CreateStudentsTable extends Migration
             $table->string('name');
             $table->integer('marks');
             $table->string('grade');
+            $table->string('gpa');
             $table->timestamps();
         });
     }

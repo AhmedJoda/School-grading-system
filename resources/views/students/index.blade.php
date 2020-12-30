@@ -9,6 +9,8 @@
                 <th scope="col">name</th>
                 <th scope="col">marks</th>
                 <th scope="col">grade</th>
+                <th scope="col">gpa</th>
+                <th scope="col">show</th>
                 <th scope="col">edit</th>
                 <th scope="col">delete</th>
 
@@ -19,10 +21,15 @@
             @foreach($students as $student)
                 <th scope="row">1</th>
                 <td>{{$student->name}}</td>
-                <td>{{$student->job}}</td>
-                <td>{{$student->salary}}</td>
+                <td>{{$student->marks}}</td>
+                <td>{{$student->grade}}</td>
+                <td>{{$student->gpa}}</td>
+                <td><a href="{{url('students/'.$student->id)}}">
+                    <button class='btn btn-primary'>    
+show                        </button>
+                </a> </td>
                 <td><a href="{{url('students/'.$student->id.'/edit')}}">
-                            <button class='btn btn-primary'>    
+                            <button class='btn btn-warning'>    
 edit                        </button>
                         </a> </td>
                         <td>

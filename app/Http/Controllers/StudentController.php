@@ -41,27 +41,41 @@ class StudentController extends Controller
           } else {
             $marks = request('marks');
               $grade = 'F' ;
+              $gpa = '1';
+              
 
               if ($marks > 90) {
                 $grade = 'A' ;
+                $gpa = '1';
+
             }
             elseif($marks > 80){
                 $grade = 'B' ;
+                $gpa = '1';
+
 
             }elseif($marks > 70){
                 $grade = 'C' ;
+                $gpa = '1';
+
 
             }elseif($marks > 60){
                 $grade = 'D' ;
+                $gpa = '1';
+
 
             }else{
                 $grade = 'F' ;
+                $gpa = '1';
+
 
             }
               $student = new Student;
               $student->name = request('name');
               $student->marks = $marks;
               $student->grade = $grade;
+              $student->gpa = $gpa;
+
               $student->save();
               session()->flash('success','added successfully');
               return redirect('/students');
@@ -81,34 +95,54 @@ class StudentController extends Controller
             return response()->json(['status' => false, 'messages' => $Validator->messages()->all()]);
           } else {
             $marks = request('marks');
+            $gpa = '1';
               $grade = 'F' ;
+              $gpa = '1';
 
               if ($marks > 90) {
                 $grade = 'A' ;
+                $gpa = '1';
+
             }
             elseif($marks > 80){
                 $grade = 'B' ;
+                $gpa = '1';
+
 
             }elseif($marks > 70){
                 $grade = 'C' ;
+                $gpa = '1';
+
 
             }elseif($marks > 60){
                 $grade = 'D' ;
+                $gpa = '1';
+
 
             }else{
                 $grade = 'F' ;
+                $gpa = '1';
+
 
             }
               $student = Student::find($id);
               $student->name = request('name');
               $student->marks = $marks;
               $student->grade = $grade;
+              $student->gpa = $gpa;
               $student->save();
               session()->flash('success','updated successfully');
               return redirect('/students');
           }
 
     }
+
+    public function show($id)
+    {
+        $student = Student::find($id);
+        return view('students.show',['student'=>$student]);
+    }
+
     public function destroy($id)
     {
         Student::find($id)->delete();

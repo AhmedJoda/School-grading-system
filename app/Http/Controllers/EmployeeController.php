@@ -74,6 +74,11 @@ class EmployeeController extends Controller
           }
 
     }
+    public function show($id)
+    {
+        $employee = Employee::find($id);
+        return view('employees.show',['employee'=>$employee]);
+    }
     public function destroy($id)
     {
         Employee::find($id)->delete();
